@@ -1,0 +1,6 @@
+lib/
+__tests__/
+.travis.yml
+.idea/
+jest-config.js
+tsconfig.json

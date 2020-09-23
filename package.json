@@ -1,0 +1,49 @@
+{
+  "name": "jovisco-pdf",
+  "version": "1.0.0",
+  "description": "JOVISCO PDF Forms",
+  "main": "/dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build:prep": "copy -r ./lib/assets ./dist/assets",
+    "build": "tsc",
+    "test": "jest",
+    "pkg:version": "npm version patch",
+    "pkg:publish": "npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joheiss/jovisco-pdf.git"
+  },
+  "keywords": [
+    "jovisco",
+    "pdf",
+    "typescript"
+  ],
+  "author": "Josef Heiss <josef.heiss@jovisco.de> (http://www.jovisco-web.de)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joheiss/jovisco-pdf/issues"
+  },
+  "homepage": "https://github.com/joheiss/jovisco-pdf#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.14",
+    "@types/lodash": "^4.14.161",
+    "@types/luxon": "^1.25.0",
+    "@types/node": "^14.11.2",
+    "@types/pdfkit": "^0.10.6",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.4.0",
+    "ts-loader": "^8.0.4",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "full-icu": "^1.3.1",
+    "intl": "^1.2.5",
+    "intl-locales-supported": "^1.8.12",
+    "jovisco-domain": "^1.0.69",
+    "lodash": "^4.17.20",
+    "luxon": "^1.25.0",
+    "pdfkit": "^0.11.0"
+  }
+}
