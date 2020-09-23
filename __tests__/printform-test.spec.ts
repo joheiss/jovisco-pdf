@@ -10,4 +10,9 @@ describe('PDF tests', () => {
         // @ts-ignore
         console.log('Address Line Image Path: ', BaseForm.addressLineImagePath);
     });
+
+    it('should be able to create the base form', () => {
+        const doc = new BaseForm();
+        expect(doc).toBeDefined();
+    });
 });
