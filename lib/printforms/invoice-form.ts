@@ -1,6 +1,7 @@
 import {BaseForm} from './base-form';
 import {IInvoiceFormData} from './invoice-form-data';
 import PDFDocument = PDFKit.PDFDocument;
+import {FormOptions} from './form-options';
 
 export class InvoiceForm extends BaseForm {
 
@@ -9,7 +10,7 @@ export class InvoiceForm extends BaseForm {
 
     private data: IInvoiceFormData;
 
-    constructor(data: IInvoiceFormData) {
+    constructor(options: FormOptions, data: IInvoiceFormData) {
 
         const info: PDFKit.DocumentInfo = {} as PDFKit.DocumentInfo;
         info.Title = `${InvoiceForm.title} ${data.invoiceId}`;
@@ -19,7 +20,7 @@ export class InvoiceForm extends BaseForm {
         info.CreationDate = new Date();
         info.Keywords = info.Title;
 
-        super(info);
+        super(options, info);
 
         this.data = data;
     }

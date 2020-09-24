@@ -1,6 +1,7 @@
 import PDFKit from 'pdfkit';
 import * as fs from 'fs';
 import PDFDocument = PDFKit.PDFDocument;
+import {FormOptions} from './form-options';
 
 export class BaseForm {
 
@@ -13,26 +14,15 @@ export class BaseForm {
   protected static readonly textColor = 'black';
   protected static readonly formColor = '#005F69';
   protected static readonly imagePath = __dirname + 'node_modules/jovisco-pdf/dist/';
-  protected static readonly headerImagePath = BaseForm.imagePath + 'assets/img/jovisco-letter-head.png';
-  protected static readonly footerImagePath = BaseForm.imagePath +  'assets/img/jovisco-letter-foot.png';
-  protected static readonly addressLineImagePath =BaseForm.imagePath + 'assets/img/adresse_mini.jpg';
 
   protected doc: PDFDocument;
 
-  public static getImagePaths(): string[] {
-    return [
-      BaseForm.headerImagePath,
-      BaseForm.footerImagePath,
-      BaseForm.addressLineImagePath
-    ];
-  }
+  constructor(protected options: FormOptions, info?: PDFKit.DocumentInfo) {
 
-  constructor(info?: PDFKit.DocumentInfo) {
-
-    console.log('Header Image Path: ', BaseForm.headerImagePath);
-    console.log('Footer Image Path: ', BaseForm.footerImagePath);
-    console.log('Address Line Image Path: ', BaseForm.addressLineImagePath);
-    this.doc = this.createForm(info);
+    console.log('Header Image Path: ', options.headerImagePath);
+    console.log('Footer Image Path: ', options.footerImagePath);
+    console.log('Address Line Image Path: ', options.addressLineImagePath);
+    this.doc = this.createForm(options, info);
   }
 
 
@@ -68,12 +58,12 @@ export class BaseForm {
     });
   }
 
-  protected createForm(info: any): PDFDocument {
+  protected createForm(options: FormOptions, info: any): PDFDocument {
 
     return this.createDocument(info)
-      .image(BaseForm.headerImagePath, 189.6, 0, {width: 226.4})
-      .image(BaseForm.addressLineImagePath, BaseForm.startPosX, 141.5, {width: 201})
-      .image(BaseForm.footerImagePath, BaseForm.startPosX, 764, {width: 481.1});
+      .image(options.headerImagePath, 189.6, 0, {width: 226.4})
+      .image(options.addressLineImagePath, BaseForm.startPosX, 141.5, {width: 201})
+      .image(options.footerImagePath, BaseForm.startPosX, 764, {width: 481.1});
   }
 
   protected createDocument(info: PDFKit.DocumentInfo): PDFDocument {
