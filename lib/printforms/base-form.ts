@@ -12,9 +12,10 @@ export class BaseForm {
   protected static readonly smallFontSize: number = 9;
   protected static readonly textColor = 'black';
   protected static readonly formColor = '#005F69';
-  protected static readonly headerImagePath = __dirname + 'assets/img/jovisco-letter-head.png';
-  protected static readonly footerImagePath = __dirname +  'assets/img/jovisco-letter-foot.png';
-  protected static readonly addressLineImagePath = __dirname + 'assets/img/adresse_mini.jpg';
+  protected static readonly imagePath = __dirname + 'node_modules/jovisco-pdf/dist/';
+  protected static readonly headerImagePath = BaseForm.imagePath + 'assets/img/jovisco-letter-head.png';
+  protected static readonly footerImagePath = BaseForm.imagePath +  'assets/img/jovisco-letter-foot.png';
+  protected static readonly addressLineImagePath =BaseForm.imagePath + 'assets/img/adresse_mini.jpg';
 
   protected doc: PDFDocument;
 
