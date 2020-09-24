@@ -1,7 +1,6 @@
 import PDFKit from 'pdfkit';
 import * as fs from 'fs';
 import PDFDocument = PDFKit.PDFDocument;
-import path from 'path';
 
 export class BaseForm {
 
@@ -29,10 +28,10 @@ export class BaseForm {
 
   constructor(info?: PDFKit.DocumentInfo) {
 
-    this.doc = this.createForm(info);
     console.log('Header Image Path: ', BaseForm.headerImagePath);
     console.log('Footer Image Path: ', BaseForm.footerImagePath);
     console.log('Address Line Image Path: ', BaseForm.addressLineImagePath);
+    this.doc = this.createForm(info);
   }
 
 
@@ -71,9 +70,9 @@ export class BaseForm {
   protected createForm(info: any): PDFDocument {
 
     return this.createDocument(info)
-      .image(path.join(__dirname, BaseForm.headerImagePath), 189.6, 0, {width: 226.4})
-      .image(path.join(__dirname, BaseForm.addressLineImagePath), BaseForm.startPosX, 141.5, {width: 201})
-      .image(path.join(__dirname, BaseForm.footerImagePath), BaseForm.startPosX, 764, {width: 481.1});
+      .image(BaseForm.headerImagePath, 189.6, 0, {width: 226.4})
+      .image(BaseForm.addressLineImagePath, BaseForm.startPosX, 141.5, {width: 201})
+      .image(BaseForm.footerImagePath, BaseForm.startPosX, 764, {width: 481.1});
   }
 
   protected createDocument(info: PDFKit.DocumentInfo): PDFDocument {
