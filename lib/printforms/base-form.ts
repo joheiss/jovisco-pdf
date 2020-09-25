@@ -54,6 +54,7 @@ export class BaseForm {
       // writeStream.on('close', stepFinished);
       writeStream.on('error', (err) => console.log(err));
       writeStream.on('finish', stepFinished);
+      writeStream.on('close', stepFinished);
       this.doc.pipe(writeStream);
       this.doc.end();
       stepFinished();

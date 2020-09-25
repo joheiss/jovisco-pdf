@@ -4,6 +4,7 @@
     <list default="true" id="56c8a152-f902-4727-b28b-0ea07b6e650b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/printforms/base-form.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/printforms/base-form.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +60,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1600867247341</updated>
-      <workItem from="1600867248767" duration="16196000" />
+      <workItem from="1600867248767" duration="20234000" />
     </task>
     <servers />
   </component>
