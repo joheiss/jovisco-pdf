@@ -122,9 +122,12 @@ export class InvoiceFormDataMapper {
     this.formData.vatPercentage = this.invoice.vatPercentage.toString();
     this.formData.cashDiscountPercentage = this.invoice.cashDiscountPercentage.toString();
     if (this.invoice.header.issuedAt) {
-      console.log('calculate cashDiscountDueDate: ', this.invoice.header.cashDiscountDays);
-      this.formData.cashDiscountDueDate = this.dateTimeFormat.format(
-        DateUtility.addDaysToDate(this.invoice.header.issuedAt, this.invoice.header.cashDiscountDays || 0));
+      try {
+        this.formData.cashDiscountDueDate = this.dateTimeFormat.format(
+            DateUtility.addDaysToDate(new Date(this.invoice.header.issuedAt), this.invoice.header.cashDiscountDays || 0));
+      } catch {
+        this.formData.cashDiscountDueDate = this.formData.invoiceDate;
+      }
     }
     console.log('cashDiscountDueDate: ', this.formData.cashDiscountDueDate);
     this.formData.totalNetValue = this.currencyFormat.format(this.invoice.netValue);
