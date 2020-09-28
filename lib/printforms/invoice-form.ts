@@ -25,6 +25,10 @@ export class InvoiceForm extends BaseForm {
         this.data = data;
     }
 
+    public getId(): string {
+        return this.data.invoiceId;
+    }
+
     public print(): void {
 
         this.printAddress();
